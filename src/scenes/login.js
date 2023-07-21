@@ -3,6 +3,29 @@ import '../assets/styles/formStyles.css'
 import {Link, useNavigate} from "react-router-dom";
 
 export default function BodyLogin() {
+
+    /*const {login,token,setToken, setUser, user,setOpen} = useContext{"API"}
+      const [user, setuser] = useState({
+        email: "",
+        password:"",
+      })
+      
+    const handleChange = (e) => {
+        setuser({...user,[e.target.name]: e.target.value})
+        console.log(user)
+    }
+    const loginData= async(user) => {
+        const { email, password,} = user;
+        await axios.post('api que se usara', { email , password})
+            .then( function (response) {
+                console.log(response.data.jwt);
+                setToken(response.data.jwt)
+                navigate("/home")
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    */
     let label1 = "Username";
     let label2 = "Passoword";
     const [user, setuser] = useState({
