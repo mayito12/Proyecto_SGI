@@ -1,10 +1,35 @@
-import {useContext, useImperativeHandle, useState} from "react";
-import '../assets/styles/formStyles.css'
-import {Link, useNavigate} from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Box, Button, Typography, TextField, Container } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-export default function BodyLogin() {
+const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#256BFA",
+      },
+      secondary: {
+        main: "#DC79FF",
+      },
+    },
+  });
 
-    /*const {login,token,setToken, setUser, user,setOpen} = useContext{"API"}
+  const Login = () => {
+    const [user, setUser] = useState({
+      email: "",
+      password: "",
+    });
+  
+    const navigate = useNavigate();
+  
+    const handleChange = (e) => {
+      setUser({ ...user, [e.target.name]: e.target.value });
+    };
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      console.log(user);
+       /*const {login,token,setToken, setUser, user,setOpen} = useContext{"API"}
       const [user, setuser] = useState({
         email: "",
         password:"",
@@ -26,47 +51,64 @@ export default function BodyLogin() {
                 console.log(error);
             });
     */
-    let label1 = "Username";
-    let label2 = "Passoword";
-    const [user, setuser] = useState({
-        email: "",
-        lastName: "",
-        name: "",
-        password: "",
-        phone: ""
-    })
-    const navigate = useNavigate();
-
-    const handleChange = (e) => {
-        setuser({...user,[e.target.name]: e.target.value})
-        console.log(user)
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(user)
-        navigate("/home")
-    }
-
-
-
+      navigate("/home");
+    };
+  
     return (
-        <>
-            <div className="backgroundColor">
-                <div className="box-img-form"></div>
-                <div className="form-box">
-                    <div className="form-title"><h2>Log In</h2></div>
-                    <div>
-                        <form onSubmit={handleSubmit}>
-                            <label htmlFor="email">Email</label>
-                            <input className="input" onChange={handleChange} name="email" type="email" id="email" htmlFor="email" required></input>
-                            <label htmlFor="password">Contraseña</label>
-                            <input className="input" onChange={handleChange} name="password" type="password" id="password" htmlFor="password" required></input>
-                            <input className="submit" type="submit" value="Login" id="btn-form-register" required/>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
-}
+      <ThemeProvider theme={theme}>
+       <Box
+      style={{
+        backgroundImage: `url(${process.env.PUBLIC_URL}/assets/fondo.jpg)`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
+      minHeight="100vh"
+    >
+          <Container maxWidth="xs">
+            <Box p={2} bgcolor="#FFFFFF" boxShadow={2} borderRadius={8}>
+              <Typography variant="h4" align="center" gutterBottom color="#000000">
+              Plataforma de Información Universitaria Múltiple
+              </Typography>
+              <form onSubmit={handleSubmit}>
+                <TextField
+                  fullWidth
+                  label="Email"
+                  variant="outlined"
+                  margin="normal"
+                  name="email"
+                  value={user.email}
+                  onChange={handleChange}
+                  required
+                />
+                <TextField
+                  fullWidth
+                  label="Password"
+                  variant="outlined"
+                  margin="normal"
+                  type="password"
+                  name="password"
+                  value={user.password}
+                  onChange={handleChange}
+                  required
+                />
+                <Button
+                  fullWidth
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                >
+                  Iniciar Sesion
+                </Button>
+              </form>
+            </Box>
+          </Container>
+        </Box>
+      </ThemeProvider>
+    );
+  };
+  
+  export default Login;

@@ -1,5 +1,6 @@
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
+import { Link } from "react-router-dom";
 import { mockTransactions } from "../../data/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import EmailIcon from "@mui/icons-material/Email";
@@ -57,7 +58,11 @@ const Dashboard = () => {
         >
           <StatBox
             title="Nuevo Procedimiento"
-            subtitle="Subir Procedimiento"
+            subtitle= {
+              <Link to="/team" style={{ textDecoration: "none", color: colors.grey[100] }}>
+                  Subir Procedimiento
+              </Link>
+            }
             progress="0"
             icon={
               <EmailIcon
