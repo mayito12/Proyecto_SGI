@@ -5,13 +5,6 @@
     width: 50%;
     margin-top: 100px;
 }
-
-.backgroundColor .box-img-form{
-    background: url('../fondo.jpg');
-    background-position: center;
-    width: 50%;
-    height: 100%;
-}
 .form-box .form-title {
     font-family: 'Montserrat';
     font-style: normal;

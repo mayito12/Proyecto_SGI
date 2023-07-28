@@ -24,21 +24,6 @@ const Dashboard = () => {
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
-
-        <Box>
-          <Button
-            sx={{
-              backgroundColor: colors.blueAccent[700],
-              color: colors.grey[100],
-              fontSize: "14px",
-              fontWeight: "bold",
-              padding: "10px 20px",
-            }}
-          >
-            <DownloadOutlinedIcon sx={{ mr: "10px" }} />
-            Download Reports
-          </Button>
-        </Box>
       </Box>
 
       {/* GRID & CHARTS */}
@@ -59,7 +44,7 @@ const Dashboard = () => {
           <StatBox
             title="Nuevo Procedimiento"
             subtitle= {
-              <Link to="/team" style={{ textDecoration: "none", color: colors.grey[100] }}>
+              <Link to="/form" style={{ textDecoration: "none", color: "#6870fa" }}>
                   Subir Procedimiento
               </Link>
             }
@@ -80,7 +65,10 @@ const Dashboard = () => {
         >
           <StatBox
             title="Asignar Procedimiento"
-            subtitle="Asigna un procedimiento"
+            subtitle={<Link to="/team" style={{ textDecoration: "none", color: "#6870fa" }}>
+            Asignar a un Procedimiento
+            </Link>
+            }
             progress="0"
             icon={
               <PersonAddIcon
@@ -98,7 +86,11 @@ const Dashboard = () => {
         >
           <StatBox
             title="Ver Historico"
-            subtitle="Visualiza el historico"
+            subtitle={
+              <Link to="/team" style={{ textDecoration: "none", color: "#6870fa" }}>
+                  Visualizacion del Historico
+              </Link>
+            }
             progress="0"
             icon={
               <HistoryOutlined
@@ -116,7 +108,9 @@ const Dashboard = () => {
         >
           <StatBox
             title="Cambiar Status"
-            subtitle="Cambia el estatus de un procedimiento"
+            subtitle={<Link to="/team" style={{ textDecoration: "none", color: "#6870fa" }}>
+            Modificar Status
+        </Link>}
             progress="0"
             icon={
               <ChangeCircleOutlined

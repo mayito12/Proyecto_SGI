@@ -58,7 +58,7 @@ const theme = createTheme({
       <ThemeProvider theme={theme}>
        <Box
       style={{
-        backgroundImage: `url(${process.env.PUBLIC_URL}/assets/fondo.jpg)`,
+        backgroundImage: `url("/src/assets/fondo.jpg")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
