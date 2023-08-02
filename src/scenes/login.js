@@ -1,7 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, Button, Typography, TextField, Container } from "@mui/material";
+import { Box, Container, Typography, TextField, Button } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import fondoImg from '../assets/fondo.jpg';
 
 const theme = createTheme({
     palette: {
@@ -53,25 +54,27 @@ const theme = createTheme({
     */
       navigate("/home");
     };
-  
     return (
       <ThemeProvider theme={theme}>
-       <Box
-      style={{
-        backgroundImage: `url("/src/assets/fondo.jpg")`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-      display="flex"
-      flexDirection="column"
-      justifyContent="center"
-      alignItems="center"
-      minHeight="100vh"
-    >
+        <Box
+          style={{
+            backgroundImage: `url(${fondoImg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          minHeight="100vh"
+        >
           <Container maxWidth="xs">
-            <Box p={2} bgcolor="#FFFFFF" boxShadow={2} borderRadius={8}>
+            <Box p={2} bgcolor="#FFFFFF" boxShadow={7} borderRadius={8} >
               <Typography variant="h4" align="center" gutterBottom color="#000000">
-              Plataforma de Información Universitaria Múltiple
+                Plataforma 
+                de 
+                Información 
+                Universitaria 
               </Typography>
               <form onSubmit={handleSubmit}>
                 <TextField
@@ -101,7 +104,7 @@ const theme = createTheme({
                   variant="contained"
                   color="primary"
                 >
-                  Iniciar Sesion
+                  Iniciar Sesión
                 </Button>
               </form>
             </Box>
